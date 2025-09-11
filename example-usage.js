@@ -4,7 +4,7 @@ const {
 } = require('./processLocationObject.js')
 
 // Example usage
-const filePath = './desiredLocationObject.json'
+const filePath = './11-9-content/en.json'
 
 // Process the data
 const processedData = processLocationObject(filePath)
@@ -23,4 +23,4 @@ processedData.forEach((obj, index) => {
 })
 
 // To actually update the file, uncomment this line:
-// updateLocationObjectFile(filePath, processedData);
+updateLocationObjectFile(filePath, processedData)
