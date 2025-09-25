@@ -16,13 +16,7 @@ function processLocationObject(filePath) {
     const processedObjects = locationObjects.map((obj) => {
       // If no desc property, add default values
       if (!obj.desc) {
-        return {
-          ...obj,
-          desc: '',
-          nprogress: 0,
-          ncompleted: 0,
-          group: [],
-        }
+        return null
       }
 
       // Count status badges in the desc field
@@ -46,6 +40,8 @@ function processLocationObject(filePath) {
         nprogress: statusProgressCount,
         ncompleted: statusCompleteCount,
         group: groups,
+        style: 'subdivision',
+        type: 'hidden',
       }
     })
 
