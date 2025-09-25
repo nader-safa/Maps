@@ -38,11 +38,12 @@ function processLocationObject(filePath) {
         // Return updated object
         return {
           ...obj,
-          nprogress: statusProgressCount,
-          ncompleted: statusCompleteCount,
+          nprogress: statusProgressCount.toString(),
+          ncompleted: statusCompleteCount.toString(),
           group: groups,
-          style: 'subdivision',
+          // style: 'subdivision',
           type: 'hidden',
+          layer: 'world',
         }
       })
       .filter(Boolean)
