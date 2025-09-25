@@ -13,37 +13,39 @@ function processLocationObject(filePath) {
     const locationObjects = JSON.parse(data)
 
     // Process each location object
-    const processedObjects = locationObjects.map((obj) => {
-      // If no desc property, add default values
-      if (!obj.desc) {
-        return null
-      }
+    const processedObjects = locationObjects
+      .map((obj) => {
+        // If no desc property, add default values
+        if (!obj.desc) {
+          return null
+        }
 
-      // Count status badges in the desc field
-      const statusCompleteCount = (obj.desc.match(/status-complete/g) || [])
-        .length
-      const statusProgressCount = (obj.desc.match(/status-progress/g) || [])
-        .length
+        // Count status badges in the desc field
+        const statusCompleteCount = (obj.desc.match(/status-complete/g) || [])
+          .length
+        const statusProgressCount = (obj.desc.match(/status-progress/g) || [])
+          .length
 
-      // Create new groups array based on found statuses
-      const groups = []
-      if (statusProgressCount > 0) {
-        groups.push('In Progress')
-      }
-      if (statusCompleteCount > 0) {
-        groups.push('Completed')
-      }
+        // Create new groups array based on found statuses
+        const groups = []
+        if (statusProgressCount > 0) {
+          groups.push('In Progress')
+        }
+        if (statusCompleteCount > 0) {
+          groups.push('Completed')
+        }
 
-      // Return updated object
-      return {
-        ...obj,
-        nprogress: statusProgressCount,
-        ncompleted: statusCompleteCount,
-        group: groups,
-        style: 'subdivision',
-        type: 'hidden',
-      }
-    })
+        // Return updated object
+        return {
+          ...obj,
+          nprogress: statusProgressCount,
+          ncompleted: statusCompleteCount,
+          group: groups,
+          style: 'subdivision',
+          type: 'hidden',
+        }
+      })
+      .filter(Boolean)
 
     return processedObjects
   } catch (error) {
