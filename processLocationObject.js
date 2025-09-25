@@ -41,7 +41,7 @@ function processLocationObject(filePath) {
           nprogress: statusProgressCount.toString(),
           ncompleted: statusCompleteCount.toString(),
           group: groups,
-          // style: 'subdivision',
+          style: 'subdivision',
           type: 'hidden',
           layer: 'world',
         }
