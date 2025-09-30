@@ -44,6 +44,7 @@ function processLocationObject(filePath) {
           style: 'subdivision',
           type: 'hidden',
           layer: 'world',
+          about: `Completed: ${statusCompleteCount.toString()} | In Progress: ${statusProgressCount.toString()}`,
         }
       })
       .filter(Boolean)
