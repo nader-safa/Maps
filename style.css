@@ -99,6 +99,15 @@
   border: none;
 }
 
+.mapplic-dir-group {
+  max-height: 50vh !important;
+}
+
+.mapplic-tooltip-mini {
+  max-width: calc(35%) !important;
+  max-height: calc(35%) !important;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   body {
